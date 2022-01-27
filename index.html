@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Card Game Test</title>
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="https://unpkg.com/vue@next"></script>
+    <script defer src="app.js"></script>
+  </head>
+  <body>
+    <div id="app-root">
+      <header>
+        <nav>
+          <button>Cards</button>
+          <button>Weapons</button>
+          <button>Equipment</button>
+          <button>Characters</button>
+        </nav>
+      </header>
+      <div class="panel all-cards">
+        <h2>All cards</h2>
+        <div class="card editable" v-for="card in cards">
+          <input type="text" v-model="card.name" />
+          <select v-model="card.weaponType">
+            <option value="Blade">Blade</option>
+            <option value="Blunt">Blunt</option>
+            <option value="Pistol">Pistol</option>
+            <option value="Shotgun">Shotgun</option>
+            <option value="Assault">Assault</option>
+            <option value="Rifle">Rifle</option>
+            <option value="Heavy">Heavy</option>
+          </select>
+            <textarea
+              v-model="card.description"
+              id=""
+              cols="15"
+              rows="3"
+            ></textarea>
+          <p>
+            <span>
+              <input v-model="card.cost" type="number" min="0" max="9"
+            /></span>
+            /
+            <span>
+              <input v-model="card.value" type="number" min="0" max="9"
+            /></span>
+          </p>
+          <button class="delete-btn" v-on:click="deleteCard(card.id)">
+            🗑️
+          </button>
+        </div>
+        <button class="add-card-btn" v-on:click="newCard">📄+</button>
+      </div>
+    </div>
+  </body>
+</html>
