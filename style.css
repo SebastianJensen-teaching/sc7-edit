@@ -52,7 +52,9 @@ body {
 
 .encounter-editor {
     display: grid;
-    grid-template-columns: min-content min-content 1fr;   
+    grid-template-columns: min-content 1fr min-content;
+    place-items: center;
+    background-color: #999;
 }
 
 .panel h2 {
@@ -168,13 +170,42 @@ body {
     display: grid;
     grid-template: repeat(9, 32px) / repeat(9, 32px);
     place-items: center center;
-    box-shadow: inset 2px 2px 4px #ccc;
+    box-shadow: inset 2px 2px 4px yellowgreen,
+                2px 2px 4px #333;
+    margin: 1rem;
+    padding: 1rem;
+    border: 1px solid black;
+    width: max-content;
+    border-radius: 10px;
+    background-color: green;
 }
 
 .pallette {
     display: grid;
     grid-template-columns: min-content min-content;
     margin: 1rem;
+    padding: 1rem;
+    border: 1px solid black;
+    width: max-content;
+    border-radius: 10px;
+    box-shadow:2px 2px 4px #333;
+    background-color: whitesmoke;
+}
+
+.properties {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+    padding: 1rem;
+    border: 1px solid black;
+    width: max-content;
+    border-radius: 10px;
+    box-shadow:2px 2px 4px #333;
+    background-color: whitesmoke;
+}
+
+.properties label {
+    
 }
 
 .tile {

@@ -22,15 +22,19 @@
       <div class="panel encounter-editor">
         <h2>Encounter Editor</h2>
         <nav>
-          <button @click="generateCombat">New</button>
-          <button @click="generateCombat">Open</button>
-          <button @click="generateCombat">Save</button>
-          <button @click="generateCombat">Save as</button>
+          <button @click="generateCombat">📄 New</button>
+          <button @click="generateCombat">📂 Open</button>
+          <button @click="generateCombat">💾 Save</button>
+          <button @click="generateCombat">💾 Save as</button>
         </nav>
+        
         <aside>
           <div class="pallette enviroment">
             <button @click="brush = '🧱'">🧱</button>
+            <button @click="brush = '🕳️'">🕳️</button>
+            <button @click="brush = '💣'">💣</button>
             <button @click="brush = '🛢️'">🛢️</button>
+            <button @click="brush = '💊'">💊</button>
             <button @click="brush = '🎁'">🎁</button>
             <button @click="brush = '💎'">💎</button>
           </div>
@@ -49,6 +53,22 @@
             <div v-if="tile.occupied" >{{ tile.occupied }}</div>
           </div>
         </div>
+        <aside class="properties">
+          <label>
+            Rarity:
+            <select name="encounter_rarity">
+              <option>Common</option>
+              <option>Uncommon</option>
+              <option>Rare</option>
+              <option>Epic</option>
+              <option>Legendary</option>
+            </select>
+          </label>
+          <label>
+            Level:
+            <input type="range" name="level" id="">
+          </label>
+        </aside>
       </div>
       <div class="panel all-cards">
         <h2>Card Editor</h2>
