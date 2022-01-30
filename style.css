@@ -9,12 +9,12 @@ header{
     background-color: #222;
 }
 
-nav {
+header nav {
     display: flex;
     justify-content: space-around;
 }
 
-nav button {
+header nav button {
     border: 1px white solid;
     border-radius: 10px;
     background-color: transparent;
@@ -23,7 +23,7 @@ nav button {
     margin: 1rem;
 }
 
-nav button:hover {
+header nav button:hover {
     background-color: red;
     border-color: #222;
     transition: all 400ms;
@@ -50,6 +50,11 @@ body {
     place-items: center;
 }
 
+.encounter-editor {
+    display: grid;
+    grid-template-columns: min-content min-content 1fr;   
+}
+
 .panel h2 {
     justify-self: stretch;
     grid-column: 1 / -1;
@@ -60,6 +65,29 @@ body {
     padding: 0.5rem 1rem;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+}
+
+.panel nav {
+    grid-column: 1 / -1;
+    justify-self: stretch;
+    padding: 0.5rem 1rem;
+}
+
+.panel nav button {
+    padding: 0.5rem 1rem;
+    border-radius: 0px;
+    border: 1px solid #222;
+    box-shadow: 2px 2px 4px #222;
+}
+
+.panel nav button:first-child {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.panel nav button:last-child {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
 .card {
@@ -132,6 +160,34 @@ body {
     transition: all 500ms;
     background-color: rgb(118, 224, 118);
     animation: bounce 500ms ease-in-out forwards ;
+}
+
+
+
+.combat-board {
+    display: grid;
+    grid-template: repeat(9, 32px) / repeat(9, 32px);
+    place-items: center center;
+    box-shadow: inset 2px 2px 4px #ccc;
+}
+
+.pallette {
+    display: grid;
+    grid-template-columns: min-content min-content;
+    margin: 1rem;
+}
+
+.tile {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+}
+
+.tile:nth-child(odd) {
+    background-color: #ccc;
 }
 
 textarea {

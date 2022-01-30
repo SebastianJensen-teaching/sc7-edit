@@ -19,8 +19,39 @@
           <button>Characters</button>
         </nav>
       </header>
+      <div class="panel encounter-editor">
+        <h2>Encounter Editor</h2>
+        <nav>
+          <button @click="generateCombat">New</button>
+          <button @click="generateCombat">Open</button>
+          <button @click="generateCombat">Save</button>
+          <button @click="generateCombat">Save as</button>
+        </nav>
+        <aside>
+          <div class="pallette enviroment">
+            <button @click="brush = '🧱'">🧱</button>
+            <button @click="brush = '🛢️'">🛢️</button>
+            <button @click="brush = '🎁'">🎁</button>
+            <button @click="brush = '💎'">💎</button>
+          </div>
+          <div class="pallette enemies">
+            <button @click="brush = '💀'">💀</button>
+            <button @click="brush = '👻'">👻</button>
+            <button @click="brush = '🐙'">🐙</button>
+            <button @click="brush = '🤖'">🤖</button>
+            <button @click="brush = '💩'">💩</button>
+            <button @click="brush = '👾'">👾</button>
+            <button @click="brush = '👹'">👹</button>
+          </div>
+        </aside>
+        <div class="combat-board">
+          <div v-for="tile in tiles" class="tile" @click="spawnEntity(tile.id)" @click.right="clearTile($event, tile.id)">
+            <div v-if="tile.occupied" >{{ tile.occupied }}</div>
+          </div>
+        </div>
+      </div>
       <div class="panel all-cards">
-        <h2>All cards</h2>
+        <h2>Card Editor</h2>
         <div class="card editable" v-for="card in cards">
           <input type="text" v-model="card.name" />
           <select v-model="card.weaponType">
